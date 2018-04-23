@@ -77,15 +77,16 @@ export default class Pagination{
 			let currentRange = this.data.slice(from,to);
 			let tbody = this.table.querySelector("tbody");
 			tbody.innerHTML = "";
-			for (var i = 0; i < currentRange.length; i++) {
+			for (let i = 0; i < currentRange.length; i++) {
 				let tr = document.createElement("tr");
-			    let NameTd = document.createElement("td");
-			    NameTd.innerHTML = currentRange[i].name;
-			    let ageTd = document.createElement("td");
-			    ageTd.innerHTML = currentRange[i].age;
-			    tr.appendChild(NameTd);
-			    tr.appendChild(ageTd);
-			    tbody.appendChild(tr);
+				let keys =  Object.getOwnPropertyNames(currentRange[i]);
+				for (let j = 0; j < keys.length; j++) {
+					let currentkey = keys[j];
+					let td = document.createElement("td");
+					td.innerHTML = currentRange[i][currentkey];
+					tr.appendChild(td);
+				}
+				tbody.appendChild(tr);
 			}
 		}
 		addEventListeners(){
