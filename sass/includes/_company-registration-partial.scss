@@ -1,0 +1,68 @@
+.forms-container{
+	width: auto;
+	position: relative;
+	border: 1px solid $borderPrimaryColor;
+    border-radius:2px;
+    background-color:inherit;
+}
+.forms{
+	width: auto;
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	padding: 25px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    color: $primaryFontColor;
+    font-family: $font-family--Roboto;
+}
+.forms-container-foot{
+	border-top: 1px solid $borderPrimaryColor;
+    border-radius:2px;
+    padding-left: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 15px;
+}
+.forms-block{
+	width: auto;
+	position: relative;
+	border: 1px solid $borderPrimaryColor;
+    border-radius:2px;
+    background-color:$primaryColor;
+    color: $primaryFontColor;
+    margin-left:25px;
+}
+.form-header{
+	border-bottom: 1px solid $borderPrimaryColor;
+    border-radius:2px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.forms-form{
+	padding:12px;
+}
+.form-header__h1{
+	@include header ($primaryFontColor,24px,300,1.3);
+	margin: 0;
+}
+fieldset{
+	border: none;
+}
+@media (min-width: 500px) and (max-width: 900px) {}
+@media (max-width: 500px) {
+    .forms{
+        flex-direction: column;
+        padding: 10px;
+    }
+    .forms-block{
+        margin-left:0;
+        margin-bottom: 10px;
+    }
+    .forms-container-foot{
+        display: flex;
+        justify-content: center;
+        padding-left: 0;
+    }
+}
