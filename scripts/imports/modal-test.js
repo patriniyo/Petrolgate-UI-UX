@@ -1,4 +1,3 @@
-
 export default class Modaltest {
 	constructor(){
 		this.addEventListeners();
@@ -10,5 +9,5 @@ export default class Modaltest {
 	selectModal(){
 		let activeModal = document.getElementById("modal1");
 		activeModal._show();
-	}
+	} 
 }

@@ -1,12 +1,12 @@
 import GetFormData from "./get_form_data";
 import Requests from "./requests";
 import Modal from "./modal";
-export default class Registration{
+export default class EmployeeRegistration{
 	constructor(){
 		this.addEventListeners();
 	}
 	addEventListeners(){
-		const form = document.querySelector("form.company-registration-form");
+		const form = document.querySelector("form.employee-registration-form");
 		if (!form) return;
 		form.addEventListener('submit',this.submitForm.bind(this));
 		let buttonConfirm = document.querySelector("#modal-button--confirm");
@@ -18,19 +18,17 @@ export default class Registration{
 		this.sendData(getFormData.get_form_data(evt.target));
 		let data = getFormData.get_form_data(evt.target);
 		let jsonData = JSON.stringify(data);
-		console.log(typeof jsonData);
 		console.log(jsonData);
 		this.sendData(jsonData);
 	}
 	/*send data to the server with request API*/
 	sendData(data){
-		let request = new Requests("POST", "json",this.response.bind(this), this.respondedWithError.bind(this)/*,this.showPreloader.bind(this)*/);
-		request.send("http://e52c6bac.ngrok.io/register/company",data);
+		let request = new Requests("POST", this.response.bind(this), this.respondedWithError.bind(this),this.showPreloader.bind(this));
+		request.send("http://e52cbac.ngrok.io/register/employee",data);
 	}
 	/* handle the response*/
 	response(e){
-		/*console.log(JSON.parse(e.target.responseText)); */
-		const response = JSON.parse(e.target.responseText);
+		const response = JSON.parse(e.target.responseText); 
 		if(response.success){
 			this.hidePreloader();
 			this.displayConfirmation();
@@ -39,7 +37,7 @@ export default class Registration{
 		}
 	}
 	respondedWithError(evt){
-		console.log(evt.target.responseText);
+		console.log(this.responseText);
 	}
 	/* confirmation */
 	displayConfirmation(){
@@ -50,8 +48,8 @@ export default class Registration{
 	displayError(ErrorMessage){
 		let messageParagraph = document.querySelector(".confirmation_message");
 		messageParagraph.innerHTML = ErrorMessage;
-		let modal = document.getElementById("company_success_message");
-		modal._show();
+		let employeeModal = document.getElementById("employee_success_message");
+		employeeModal._show();
 		console.log(messageParagraph);
 	}
 	finishProcess(){
@@ -67,4 +65,4 @@ export default class Registration{
 		preloader.classList.remove("show-preloader");
 	}
 }
-document.registerElement("rs-modal", Modal);
+/*document.registerElement("rs-modal", Modal);*/

@@ -1,68 +1,77 @@
+.general-form{
+    width:90%;
+}
+.general-form--client{
+    width:100%;
+}
 .forms-container{
-	width: auto;
+	width: 100%;
 	position: relative;
 	border: 1px solid $borderPrimaryColor;
     border-radius:2px;
     background-color:inherit;
 }
 .forms{
-	width: auto;
+	width: 100%;
 	position: relative;
 	display: flex;
 	justify-content: space-between;
-	padding: 25px;
-    padding-left: 0px;
-    padding-bottom: 0px;
+    padding:1.7%;
+    flex-wrap: wrap;
     color: $primaryFontColor;
     font-family: $font-family--Roboto;
 }
 .forms-container-foot{
 	border-top: 1px solid $borderPrimaryColor;
     border-radius:2px;
-    padding-left: 25px;
+    padding-left: 1.7%;
     padding-top: 5px;
     padding-bottom: 5px;
-    margin-top: 15px;
 }
 .forms-block{
-	width: auto;
+	width: 49%;
 	position: relative;
 	border: 1px solid $borderPrimaryColor;
     border-radius:2px;
     background-color:$primaryColor;
     color: $primaryFontColor;
-    margin-left:25px;
 }
 .form-header{
 	border-bottom: 1px solid $borderPrimaryColor;
     border-radius:2px;
     padding-left: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
 }
 .forms-form{
-	padding:12px;
+    width:100%;
+    padding-left:2.5%;
 }
 .form-header__h1{
-	@include header ($primaryFontColor,24px,300,1.3);
+	@include header ($primaryFontColor,22px,300,1.3);
 	margin: 0;
 }
 fieldset{
 	border: none;
 }
+.confirmation_message{
+    font-size: $normalFontSize;
+}
 @media (min-width: 500px) and (max-width: 900px) {}
 @media (max-width: 500px) {
+   .forms-block{
+        width: 100%;
+        margin-bottom: 10px;
+    } 
     .forms{
         flex-direction: column;
-        padding: 10px;
-    }
-    .forms-block{
-        margin-left:0;
-        margin-bottom: 10px;
     }
     .forms-container-foot{
         display: flex;
         justify-content: center;
         padding-left: 0;
+    }
+    .form-element--submit{
+        width: 300px;
     }
 }

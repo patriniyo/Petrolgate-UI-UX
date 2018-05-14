@@ -75,7 +75,9 @@ export default class Pagination{
 			let from = (this.page -1)*this.pageRecords;
 			let to = (this.pageRecords*this.page-1)+1;
 			let currentRange = this.data.slice(from,to);
-			let tbody = this.table.querySelector("tbody");
+			if (this.table!=null) {
+				let tbody = this.table.querySelector("tbody");
+			}
 			tbody.innerHTML = "";
 			for (let i = 0; i < currentRange.length; i++) {
 				let tr = document.createElement("tr");

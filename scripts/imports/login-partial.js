@@ -20,26 +20,36 @@ export default class Login {
 	}
 	/* format the data*/
 	formatData(){
-			let credentials = {"credentials":[
-                {"username": this.formData[0],
-                 "password": this.formData[1]
-			    }
-				]};
+			let credentials = {
+				"username": this.formData[1],
+                "password": this.formData[0]
+            };
 				return credentials;
 		}
     /*send data to the server with request API*/
 	sendData(e){
 		this.collectData();
 		let data = this.formatData();
-		let request = new Requests("POST", this.response);
-		request.send("http://9a23feb1.ngrok.io/login",data);
+		let request = new Requests("POST", this.response, this.respondedWithError);
+		request.send("http://21fbeb1d.ngrok.io/login",data);
 		e.preventDefault();
 	}
 	/* handle the response not yet finished testing remaining*/
 	response(e){
-		// const data = JSON.parse(this.responseText).data;
+		// const response = e.target.responseText;
+		const response = JSON.parse(e.target.responseText); 
+		const redirectToUrl = "/registration";
+		if(response.success){
+			console.log('success');
+			window.location.href = redirectToUrl;
+		}else{
+			this.displayError(response.errorMessage);
+		}
+		const data = e.target.responseText;
+		console.log(data);
+	}
+	respondedWithError(evt){
 		console.log(this.responseText);
-		this.displayError("hello");
 	}
 	/* handle the error*/
 	displayError(message){

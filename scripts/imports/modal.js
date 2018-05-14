@@ -18,7 +18,6 @@ export default class Modal extends HTMLElement{
         this._addEventListeners();
         this.previousActiviveEl = document.activeElement;
         this.setAttribute("visible", true);
-        this.inert(true);
         this.focus();
     }
     
@@ -100,5 +99,7 @@ export default class Modal extends HTMLElement{
         return modalHeaderEl;
     }
 }
+
+
 
 

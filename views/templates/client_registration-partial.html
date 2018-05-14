@@ -1,0 +1,91 @@
+<div class="tab-container">
+	<button id="tab1" class="tab">Company</button>
+	<button id="tab2" class="tab">Personal</button>
+</div>
+<div class="tab-content">
+	<div class="tab1">
+		<form class="general-form general-form--client company-registration-form">
+			<div class="forms-container">
+				<div class="forms">
+					<div class="forms-block">
+						<div class="form-header">
+							<h1 class="form-header__h1">Company Identification</h1>
+						</div>
+						<div class="forms-form">
+							<fieldset name="company_identification">
+								<label class="form-label" for="company_name">Company Name</label>
+						        <input type="text" placeholder="Name" name="name" required id="company_name" class="form-element form-element--liquid-width">
+						        <label class="form-label" for="company-tin">Company TIN</label>
+						        <input type="number" placeholder="TIN" name="tin" required id="company_tin" class="form-element form-element--liquid-width">
+						    </fieldset>
+						</div>
+					</div>
+					<div class="forms-block">
+						<div class="form-header">
+							<h1 class="form-header__h1">Company Address</h1>
+						</div>
+						<div class="forms-form">
+							<fieldset name="company_address">
+								<label class="form-label" for="company_email">Company Email</label>
+								<input type="email" placeholder="Email" name="email" required id="company_email" class="form-element form-element--liquid-width">
+						        <label class="form-label" for="company_district">Company District</label>
+						        <input type="text" placeholder="District" name="district" required id="company_district" class="form-element form-element--liquid-width">
+                                <label class="form-label" for="company_sector">Company Sector</label>
+						        <input type="text" placeholder = "Sector" name="sector" required id="company_sector" class="form-element form-element--liquid-width">
+						        <label class="form-label" for="company_tel">Company Phone</label>
+						        <input type="tel" maxlength="10" placeholder="Phone" name="tel" required id="company_tel" class="form-element form-element--liquid-width">
+						    </fieldset>
+						</div>
+					</div>
+				</div>
+				<div class="forms-container-foot">
+					<input type="submit" class="form-element form-element--liquid-width form-element--submit form-element--submit--company-registration" name="" value="Register">
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="tab2">div2</div>
+</div>
+<script type="text/javascript">
+	class ClientRegistration{
+		constructor(){
+			this.addEventListeners();
+
+		}
+		addEventListeners(){
+			let tabs = document.getElementsByClassName("tab");
+			for (var i = 0; i < tabs.length; i++) {
+				tabs[i].addEventListener("click",this.switchContent.bind(this));
+			}
+		}
+		switchContent(e){
+			let clickedButton = e.target.getAttribute("id");
+			e.target.classList.add("clickedTab");
+			let tabs = document.getElementsByClassName("tab");
+			for (let i = 0; i < tabs.length; i++) {
+				if (tabs[i].getAttribute("id")!== clickedButton) {
+					tabs[i].classList.remove("clickedTab");
+				}
+			}
+			let currentDiv = document.getElementsByClassName(clickedButton)[0];
+			let otherDivs = currentDiv.parentNode.children;
+			if (currentDiv.style.display == "none") {
+				currentDiv.style.display = "block";
+				for (var i = 0; i < otherDivs.length; i++) {
+					if (otherDivs[i] !== currentDiv) {
+						otherDivs[i].style.display = "none";
+					}
+				}
+			}else{
+				for (var i = 0; i < otherDivs.length; i++) {
+					if (otherDivs[i] !== currentDiv) {
+						otherDivs[i].style.display = "none";
+					}
+				}
+				currentDiv.style.display = "block";
+			}
+		}
+
+	}
+	new ClientRegistration();
+</script>

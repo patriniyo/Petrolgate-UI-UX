@@ -1,11 +1,12 @@
 {% extends "views/templates/page-template-partial.html" %}
 {% block PageTitle %}
-	Home
+	company registration
 {% endblock %}
 {% block header %}
 {% include "views/templates/page-header-partial.html"%}
 {% endblock %}
 {% block pageContent %}
-{% include "views/templates/side-nav-partial.html"%}
-{% include "views/templates/user-activity-partial.html"%}
+{% include "views/templates/preloader.html"%}
+{% include "views/templates/side-nav-registration-partial.html"%}
+{% include "views/templates/company-registration-partial.html"%}
 {% endblock %}
