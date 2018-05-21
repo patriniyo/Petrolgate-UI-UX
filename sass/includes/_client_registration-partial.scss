@@ -1,6 +1,6 @@
 .tab-container{
 	width: 90%;
-	height: 45px;
+	height: 40px;
     border: 1px solid #e6e6e6;
     box-shadow: inset 0 0 4px #e6e6e6;
     border-radius: 3px;
@@ -30,13 +30,16 @@
 	color :$primaryColor;
 	background-color: $submitColor--hover;
 	font-size: $normalFontSize;
+	border: 1px solid $submitColor--hover;
 }
 .clickedTab{
 	color :$primaryColor;
 	background-color: $submitColor--hover;
+	border: 1px solid $submitColor--hover;
 }
 .tab-content{
 	width:90%;
+	margin-top:2px;
 }
 .tab1{
 	display: block;

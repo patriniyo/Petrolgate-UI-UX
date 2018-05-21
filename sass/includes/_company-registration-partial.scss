@@ -16,7 +16,7 @@
 	position: relative;
 	display: flex;
 	justify-content: space-between;
-    padding:1.7%;
+    padding:1.5%;
     flex-wrap: wrap;
     color: $primaryFontColor;
     font-family: $font-family--Roboto;
@@ -24,7 +24,7 @@
 .forms-container-foot{
 	border-top: 1px solid $borderPrimaryColor;
     border-radius:2px;
-    padding-left: 1.7%;
+    padding-left: 1.5%;
     padding-top: 5px;
     padding-bottom: 5px;
 }
@@ -52,6 +52,7 @@
 	margin: 0;
 }
 fieldset{
+    padding:3px;
 	border: none;
 }
 .confirmation_message{

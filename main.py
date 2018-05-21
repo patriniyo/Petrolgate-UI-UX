@@ -96,6 +96,11 @@ class MainHandler(webapp2.RequestHandler):
         self.response.headers["Cache-Control"] = template_info["cache"]
         self.response.write(response["content"])
 
+    def post(self, url):
+        self.response.headers['Content-Type'] = 'application/json'
+        self.response.write(json.dumps(dict(self.request.POST )))
+        pass
+
     
 app = webapp2.WSGIApplication([
     ('/(.*)', MainHandler)
